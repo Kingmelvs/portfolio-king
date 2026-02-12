@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Melvin Regacho - Portfolio</title>
+    
+    <meta name="description" content="Portfolio - Virtual Assistant & Freelancer" />
+    <meta name="author" content="King Melvin Regacho" />
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #95a5a6;
+            --accent-color: #ff1744;
+            --accent-glow: rgba(255, 23, 68, 0.2);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --glass: rgba(255, 255, 255, 0.8);
+            --verified-blue: #1d9bf0;
+            --lightning-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #808080;
+            --accent-color: #ff1744;
+            --accent-glow: rgba(255, 23, 68, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.03);
+            --lightning-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- ADDED: Lightning Effect --- */
+        .lightning-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: transparent;
+        }
+
+        .flash {
+            animation: lightning-anim 5s infinite;
+        }
+
+        @keyframes lightning-anim {
+            0%, 95%, 100% { background: transparent; }
+            96% { background: var(--lightning-color); }
+            97% { background: transparent; }
+            98% { background: var(--lightning-color); }
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu-btn, .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 20px;
+        }
+
+        .menu-btn:hover, .theme-toggle:hover {
+            background: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Spinning Verified Badge --- */
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
+            background-color: var(--verified-blue);
+            color: white;
+            border-radius: 50%;
+            margin-left: 8px;
+            vertical-align: middle;
+            box-shadow: 0 0 15px rgba(29, 155, 240, 0.4);
+            animation: spin-badge 4s linear infinite;
+        }
+
+        @keyframes spin-badge {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        /* --- Modal Style Menu --- */
+        #menuPanel {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 180px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            z-index: 2000;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        #menuPanel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        Ito na ang updated code, King Melvin. Dinagdag ko ang Facebook, Instagram, at TikTok icons sa ibaba ng iyong typing quote. Ginamit ko ang minimalist glassmorphism style para bumagay sa aesthetic ng portfolio mo.
+
+HTML
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Melvin Regacho - Portfolio</title>
+    
+    <meta name="description" content="Portfolio - Virtual Assistant & Freelancer" />
+    <meta name="author" content="King Melvin Regacho" />
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #95a5a6;
+            --accent-color: #ff1744;
+            --accent-glow: rgba(255, 23, 68, 0.2);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --glass: rgba(255, 255, 255, 0.8);
+            --verified-blue: #1d9bf0;
+            --lightning-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #808080;
+            --accent-color: #ff1744;
+            --accent-glow: rgba(255, 23, 68, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.03);
+            --lightning-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Lightning Effect --- */
+        .lightning-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: transparent;
+        }
+
+        .flash {
+            animation: lightning-anim 5s infinite;
+        }
+
+        @keyframes lightning-anim {
+            0%, 95%, 100% { background: transparent; }
+            96% { background: var(--lightning-color); }
+            97% { background: transparent; }
+            98% { background: var(--lightning-color); }
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu-btn, .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 20px;
+        }
+
+        .menu-btn:hover, .theme-toggle:hover {
+            background: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Spinning Verified Badge --- */
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
+            background-color: var(--verified-blue);
+            color: white;
+            border-radius: 50%;
+            margin-left: 8px;
+            vertical-align: middle;
+            box-shadow: 0 0 15px rgba(29, 155, 240, 0.4);
+            animation: spin-badge 4s linear infinite;
+        }
+
+        @keyframes spin-badge {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        /* --- Modal Style Menu --- */
+        #menuPanel {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 180px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            z-index: 2000;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        #menuPanel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* --- Social Icons Style --- */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            width: 120px; height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-image {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+            position: relative; z-index: 2;
+        }
+
+        .glow-ring {
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1d9bf0, #ff1744);
+            animation: rotateGlow 6s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-name { 
+            font-size: 28px; font-weight: 800; margin-bottom: 5px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .profile-subtitle { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--text-secondary); margin-bottom: 20px; }
+        .profile-quote { font-size: 14px; color: var(--text-secondary); min-height: 20px; margin-bottom: 30px; }
+
+        .stats { display: flex; justify-content: space-around; margin-bottom: 40px; }
+        .stat-value { font-weight: bold; font-size: 18px; }
+        .stat-label { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+
+        .status-section {
+            background: var(--glass);
+            padding: 20px; border-radius: 24px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .ph-time-display { font-size: 22px; font-weight: bold; font-family: monospace; }
+        .status-label { font-size: 9px; color: var(--text-secondary); margin-bottom: 15px; letter-spacing: 1px; }
+
+        .battery-container { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .battery-icon {
+            width: 25px; height: 12px;
+            border: 1.5px solid var(--text-primary);
+            border-radius: 2px; position: relative; padding: 1px;
+        }
+        .battery-icon::after { content: ''; position: absolute; right: -4px; top: 2px; width: 3px; height: 4px; background: var(--text-primary); }
+        .battery-fill { height: 100%; background: #43e97b; transition: width 0.5s ease; }
+
+        .footer { margin-top: 50px; }
+        .footer-text { font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <div class="lightning-overlay flash"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://files.catbox.moe/4hw5zp.mp4" type="audio/mpeg">
+    </audio>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 8px; height: 8px; background: #43e97b; border-radius: 50%; box-shadow: 0 0 10px #43e97b;"></div>
+            <span style="font-size: 9px; font-family: monospace; letter-spacing: 2px; color: var(--text-secondary);">ACTIVE_NOW</span>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <button class="menu-btn" id="menuToggleBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+
+            <div id="menuPanel">
+                <a href="portfolio.html" class="menu-item">Home</a>
+                <a href="portfolio.html#experience" class="menu-item">Experinece</a>
+                <a href="portfolio.html#education" class="menu-item">Education</a>
+                <a href="portfolio.html#projects" class="menu-item">Projects</a>
+                <a href="#" class="menu-item">Services</a>
+                <a href="portfolio.html#contact" class="menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-image-wrapper">
+                <div class="glow-ring"></div>
+                <img src="profile.jpg" alt="Profile" class="profile-image">
+            </div>
+
+            <h1 class="profile-name">
+                King Melvin Regacho
+                <span class="verified-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+            </h1>
+            <p class="profile-subtitle">Portfolio (Beta)</p>
+            <p class="profile-quote" id="typingQuote"></p>
+
+            <div class="social-container">
+                <a href="https://www.facebook.com/kingmelvin022" class="social-link" title="Facebook">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/itsking_for_short/" class="social-link" title="Instagram">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@kingmelvin_022" class="social-link" title="TikTok">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.33-.76.51-1.2 1.43-1.1 2.34.03.99.69 1.94 1.66 2.15.71.14 1.48-.03 2.01-.59.44-.45.67-1.09.67-1.72.03-3.33-.01-6.66-.01-10z"/></svg>
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">20+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">99%</div>
+                    <div class="stat-label">Success</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-section">
+            <div class="ph-time-display" id="phTime">00:00:00</div>
+            <div class="status-label">PHT (GMT+8) | <span id="pingValue">24ms</span> Latency</div>
+            
+            <div class="battery-container">
+                <div class="battery-icon">
+                    <div class="battery-fill" id="batteryFill"></div>
+                </div>
+                <div class="stat-value" style="font-size: 11px;" id="batteryPercent">0%</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">© 2026 | Developed by King Melvin</p>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        document.body.addEventListener('click', () => { music.play(); }, { once: true });
+
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const menuPanel = document.getElementById('menuPanel');
+
+        menuToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuPanel.classList.toggle('active');
+        });
+
+        window.addEventListener('click', () => { menuPanel.classList.remove('active'); });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        });
+
+// --- NEW: Typing & Deleting Logic ---
+        const quoteElement = document.getElementById('typingQuote');
+        const phrases = [
+            "Mahalin mo lang ako", 
+            "never beg for someone that who dont have care for you at all"
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                quoteElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50; // Deleting is faster
+            } else {
+                quoteElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2000; // Wait at the end of the phrase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next phrase
+            }
+
+            setTimeout(typeLoop, typingSpeed);
+        }
+        typeLoop();
+
+        function updateClock() {
+            const options = { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            document.getElementById('phTime').textContent = new Intl.DateTimeFormat('en-US', options).format(new Date());
+        }
+        setInterval(updateClock, 1000); updateClock();
+
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                function updateBattery() {
+                    document.getElementById('batteryFill').style.width = (battery.level * 100) + '%';
+                    document.getElementById('batteryPercent').textContent = Math.round(battery.level * 100) + '%';
+                }
+                updateBattery(); battery.addEventListener('levelchange', updateBattery);
+            });
+        }
+        setInterval(() => { document.getElementById('pingValue').textContent = Math.floor(Math.random() * (35 - 20) + 20) + 'ms'; }, 3000);
+    </script>
+</body>
+</html>
